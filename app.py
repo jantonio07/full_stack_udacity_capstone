@@ -5,6 +5,7 @@ from image_control import ImageControl
 from auth import AuthError, requires_auth
 from models import setup_db, create_all, Album, Image
 from sqlalchemy import asc
+from flask_migrate import Migrate
 
 NO_FILE_IN_UPLOAD_REQUEST_MESSAGE = "There was no file in upload request"
 NO_NAME_IN_CREATE_ALBUM_REQUEST_MESSAGE = "There was no file in upload request"
@@ -17,7 +18,8 @@ NO_IMAGE_FOUND_MESSAGE = "No image found"
 IMAGEKIT_EXCEPTION_MESSAGE = "Something went wrong in imagekit"
 
 app = Flask(__name__)
-setup_db(app)
+db = setup_db(app)
+migrate = Migrate(app, db)
 CORS(app)
 
 # with app.app_context():
