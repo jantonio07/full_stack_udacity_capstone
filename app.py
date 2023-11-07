@@ -120,7 +120,7 @@ def upload_image(payload, albumId):
 @requires_auth('post:albums')
 def create_album(payload):
     try:
-        data = request.values
+        data = request.get_json()
         albumName = None
         if 'albumName' in data:
             albumName = data['albumName']
@@ -183,7 +183,7 @@ def delete_album(payload, albumId):
 @requires_auth('patch:albums')
 def patch_album(payload, albumId):
     try:
-        data = request.values
+        data = request.get_json()
         newName = None
         if 'newName' in data:
             newName = data['newName']
@@ -198,10 +198,10 @@ def patch_album(payload, albumId):
                     "albums": [album.getData()]
                 })
         else:
-            raise Exception(NO_NEW_NAME_IN_PATCH_ALBUM_REQUEST_MESSAGE = "There was no album ID or new name in patch request")
+            raise Exception(NO_NEW_NAME_IN_PATCH_ALBUM_REQUEST_MESSAGE)
 
     except Exception as e:
-        print("\nEXCEPTION get_albums", e, end='\n\n')
+        print("\nEXCEPTION patch_album", e, end='\n\n')
         if e.__str__() == NO_ALBUM_FOUND_MESSAGE:
             abort(404)
         elif e.__str__() == NO_NEW_NAME_IN_PATCH_ALBUM_REQUEST_MESSAGE:

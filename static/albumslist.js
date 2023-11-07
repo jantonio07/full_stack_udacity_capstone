@@ -44,13 +44,16 @@ class BaseList {
     }
     async fetch(sMethod, sCheckpoint, oFormData, fSuccessHandler) {
         var sToken = this.oViewModel.token();
-        console.log("CHECK:", sToken);
+        var headers = {
+            'Authorization': 'Bearer ' + sToken
+        }
+        if((typeof oFormData) === "string") {
+            headers["Content-Type"] = "application/json";
+        }
         var oPromise = fetch(sCheckpoint, {
             method: sMethod,
             body: oFormData,
-            headers: {
-                'Authorization': 'Bearer ' + sToken
-            }
+            headers: headers
         });
         oPromise.then(oResponse => {
             var oJson = oResponse.json();
@@ -144,7 +147,6 @@ class ImagesList extends BaseList {
     addItemsToList(oData) {
         var aImages = oData.images;
         var elList = document.getElementById(this.getListId());
-        console.log("elList", elList);
         for(var i=0; i<aImages.length; i++) {
             var oImage = aImages[i];
             var nMax = oImage.w > oImage.h ? oImage.w : oImage.h;
@@ -190,9 +192,10 @@ class AlbumsList extends BaseList {
     }
     inputHandler(elInput) {
         const sAlbumName = elInput.value;
-        const oFormData = new FormData();
-        oFormData.append('albumName', sAlbumName);
-        return oFormData;
+        const oJson = {
+            albumName: sAlbumName
+        }
+        return JSON.stringify(oJson);
     }
     displayOrCloseAlbum(elItem) {
         var elLastChild = elItem.lastChild;
@@ -238,8 +241,7 @@ class AlbumsList extends BaseList {
             elRenameField.style.display = "none";
             elItemName.style.display = "";
 
-            const oFormData = new FormData();
-            oFormData.append('newName', sNewName);
+            const oFormData = JSON.stringify({'newName': sNewName});
             this.fetch("PATCH", this.checkpoint + '/' + databaseId, oFormData, () => {
                 elItemName.innerText = sNewName;
             });
@@ -259,7 +261,6 @@ class AlbumsList extends BaseList {
         var elList = document.getElementById(this.getListId());
         for(var i=0; i<aAlbums.length; i++) {
             var oAlbum = aAlbums[i];
-            console.log("oAlbum", i, oAlbum);
 
             var elAlbum = document.createElement("li");
             elAlbum.setAttribute("databaseId", oAlbum.id);

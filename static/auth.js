@@ -65,6 +65,7 @@ class Auth0Control {
         };
         if(oAuthenticationData.bIsAuthenticated) {
             var sToken = await this.getToken();
+            console.log("USER TOKEN:", sToken);
             this.viewModel.token(sToken);
             oAuthenticationData.sToken = sToken;
             oAuthenticationData.oPayload = this.decodePayloadFromJWTToken(sToken);

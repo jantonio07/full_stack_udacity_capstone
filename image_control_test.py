@@ -1,6 +1,6 @@
 import unittest
 import os
-from ImageControl import ImageControl
+from image_control import ImageControl
 from base64 import b64encode
 
 class ImageControlTests(unittest.TestCase):
@@ -8,13 +8,14 @@ class ImageControlTests(unittest.TestCase):
         self.ik = ImageControl()
 
     def testUploadAndDeleteImage(self):
-        image_path = os.environ.get('IMAGE_SAMPLE_PATH', '../21k.jpeg')
+        image_path = os.environ.get('IMAGE_SAMPLE_PATH', 'avatar_1.jpg')
         image = None
         with open(image_path, "rb") as f:
-            image = b64encode(f.read())
+            image = f.read()
+
         self.assertTrue(image)
 
-        response = self.ik.upload_64_encoded_image(image, image_path)
+        response = self.ik.upload_image(image, image_path)
         self.assertTrue(response['success'])
         self.assertTrue(response['metadata'])
         self.assertTrue(response['metadata']['fileId'])
