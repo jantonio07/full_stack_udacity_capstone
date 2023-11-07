@@ -1,7 +1,7 @@
 import unittest
 import os
 from image_control import ImageControl
-from base64 import b64encode
+
 
 class ImageControlTests(unittest.TestCase):
     def setUp(self):
@@ -28,6 +28,7 @@ class ImageControlTests(unittest.TestCase):
         response = self.ik.delete_image(imageId)
         self.assertFalse(response['success'])
         self.assertTrue(response['message'])
+
 
 if __name__ == "__main__":
     unittest.main()

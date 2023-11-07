@@ -11,11 +11,14 @@ AUTH0_CLIENT_ID = os.environ.get('AUTH0_CLIENT_ID', '')
 ALGORITHMS = [os.environ.get('ALGORITHM', 'RS256')]
 AUTH0_AUDIENCE = os.environ.get('AUTH0_AUDIENCE', 'capstoneProject')
 
-assert len(AUTH0_DOMAIN) > 0, "Please set AUTH0_DOMAIN as environment variable"
-assert len(AUTH0_CLIENT_ID) > 0, "Please set AUTH0_CLIENT_ID as environment variable"
+AUTH0_DOMAIN_MESSAGE = "Please set AUTH0_DOMAIN as environment variable"
+AUTH0_CLIENT_ID_MESSAGE = "Please set AUTH0_CLIENT_ID as environment variable"
+
+assert len(AUTH0_DOMAIN) > 0, AUTH0_DOMAIN_MESSAGE
+assert len(AUTH0_CLIENT_ID) > 0, AUTH0_CLIENT_ID_MESSAGE
+
 
 # AuthError Exception
-
 class AuthError(Exception):
     '''
     AuthError Exception

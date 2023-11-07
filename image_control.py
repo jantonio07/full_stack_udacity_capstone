@@ -5,16 +5,23 @@ from pprint import pprint
 import os
 import functools
 
+
 class ImageControl():
     def __init__(self):
         self.PRIVATE_KEY = os.environ.get('IMAGEKIT_PRIVATE_KEY', '')
         self.PUBLIC_KEY = os.environ.get('IMAGEKIT_PUBLIC_KEY', '')
         self.URL_ENDPOINT = os.environ.get('IMAGEKIT_URL_ENDPOINT', '')
 
-        assert len(self.PRIVATE_KEY) > 0, "Please set ImageKit PRIVATE_KEY as environment variable"
-        assert len(self.PUBLIC_KEY) > 0, "Please set ImageKit PUBLIC_KEY as environment variable"
-        assert len(self.URL_ENDPOINT) > 0, "Please set ImageKit URL_ENDPOINT as environment variable"
-                
+        PRIVATE_KEY_MESSAGE = "Please set ImageKit PRIVATE_KEY \
+            as environment variable"
+        PUBLIC_KEY_MESSAGE = "Please set ImageKit PUBLIC_KEY \
+            as environment variable"
+        URL_ENDPOINT_MESSAGE = "Please set ImageKit URL_ENDPOINT \
+            as environment variable"
+        assert len(self.PRIVATE_KEY) > 0, PRIVATE_KEY_MESSAGE
+        assert len(self.PUBLIC_KEY) > 0, PUBLIC_KEY_MESSAGE
+        assert len(self.URL_ENDPOINT) > 0, URL_ENDPOINT_MESSAGE
+
         self.imagekit = ImageKit(
             private_key=self.PRIVATE_KEY,
             public_key=self.PUBLIC_KEY,
@@ -55,21 +62,21 @@ class ImageControl():
     @makes_request_to_imagekit
     def delete_image(self, image_id):
         return self.imagekit.delete_file(file_id=image_id)
-        
+
+
 if __name__ == '__main__':
-    
     image_path = os.environ.get('IMAGE_SAMPLE_PATH', '../21k.jpeg')
     image = None
     with open(image_path, "rb") as f:
         image = f.read()
     assert image is not None, "Make sure to specify the image path!"
-    
+
     image_control = ImageControl()
-    
+
     response = image_control.upload_image(image, "21k.jpeg")
     pprint(response)
     file_id = response['metadata']['fileId']
-    
+
     # response = image_control.delete_image(file_id)
     # pprint(response)
 

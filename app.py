@@ -8,7 +8,8 @@ from sqlalchemy import asc
 
 NO_FILE_IN_UPLOAD_REQUEST_MESSAGE = "There was no file in upload request"
 NO_NAME_IN_CREATE_ALBUM_REQUEST_MESSAGE = "There was no file in upload request"
-NO_NEW_NAME_IN_PATCH_ALBUM_REQUEST_MESSAGE = "There was no new name in patch request"
+NO_NEW_NAME_IN_PATCH_ALBUM_REQUEST_MESSAGE = "There was no \
+    new name in patch request"
 NO_ALBUMS_TO_SHOW_MESSAGE = "No albums to show"
 NO_IMAGES_TO_SHOW_MESSAGE = "No images to show"
 NO_ALBUM_FOUND_MESSAGE = "No album found"
@@ -24,6 +25,7 @@ with app.app_context():
 
 ik = ImageControl()
 
+
 @app.route("/")
 def hello_world():
     return render_template(
@@ -32,6 +34,7 @@ def hello_world():
             AUTH0_CLIENT_ID=os.environ.get('AUTH0_CLIENT_ID', ''),
             AUTH0_AUDIENCE=os.environ.get('AUTH0_AUDIENCE', '')
         )
+
 
 @app.route("/albums/<int:albumId>/images")
 def get_images(albumId):
@@ -52,7 +55,8 @@ def get_images(albumId):
         else:
             abort(422)
 
-@app.route("/images/<int:imageId>", methods = ["DELETE"])
+
+@app.route("/images/<int:imageId>", methods=["DELETE"])
 @requires_auth('delete:images')
 def delete_image(payload, imageId):
     try:
@@ -78,7 +82,8 @@ def delete_image(payload, imageId):
         else:
             abort(422)
 
-@app.route("/albums/<int:albumId>/images", methods = ["POST"])
+
+@app.route("/albums/<int:albumId>/images", methods=["POST"])
 @requires_auth('post:images')
 def upload_image(payload, albumId):
     try:
@@ -86,7 +91,7 @@ def upload_image(payload, albumId):
             "success": False,
             "message": None
         }
-        if not 'file' in request.files:
+        if 'file' not in request.files:
             raise Exception(NO_FILE_IN_UPLOAD_REQUEST_MESSAGE)
         album = Album.query.filter_by(id=albumId).first()
         if album is None:
@@ -98,11 +103,11 @@ def upload_image(payload, albumId):
             print("\nIMAGEKIT_EXCEPTION upload_image", e, end='\n\n')
             raise Exception(IMAGEKIT_EXCEPTION_MESSAGE)
         image = Image(
-            w = response['metadata']['width'],
-            h = response['metadata']['height'],
-            url = response['metadata']['url'],
-            imageKitId = response['metadata']['fileId'],
-            albumId = albumId
+            w=response['metadata']['width'],
+            h=response['metadata']['height'],
+            url=response['metadata']['url'],
+            imageKitId=response['metadata']['fileId'],
+            albumId=albumId
         )
         image.insert()
         response = {}
@@ -116,7 +121,8 @@ def upload_image(payload, albumId):
         else:
             abort(422)
 
-@app.route("/albums", methods = ["POST"])
+
+@app.route("/albums", methods=["POST"])
 @requires_auth('post:albums')
 def create_album(payload):
     try:
@@ -142,10 +148,14 @@ def create_album(payload):
         else:
             abort(422)
 
+
 @app.route("/albums")
 def get_albums():
     try:
-        albums = [album.getData() for album in Album.query.order_by(asc(Album.id)).all()]
+        albums = [
+            album.getData() for
+            album in Album.query.order_by(asc(Album.id)).all()
+        ]
         if len(albums) == 0:
             raise Exception(NO_ALBUMS_TO_SHOW_MESSAGE)
         return jsonify({
@@ -159,7 +169,8 @@ def get_albums():
         else:
             abort(422)
 
-@app.route("/albums/<int:albumId>", methods = ["DELETE"])
+
+@app.route("/albums/<int:albumId>", methods=["DELETE"])
 @requires_auth('delete:albums')
 def delete_album(payload, albumId):
     try:
@@ -179,7 +190,8 @@ def delete_album(payload, albumId):
         else:
             abort(422)
 
-@app.route("/albums/<int:albumId>", methods = ["PATCH"])
+
+@app.route("/albums/<int:albumId>", methods=["PATCH"])
 @requires_auth('patch:albums')
 def patch_album(payload, albumId):
     try:
@@ -209,6 +221,7 @@ def patch_album(payload, albumId):
         else:
             abort(422)
 
+
 @app.errorhandler(AuthError)
 def unauthorized(error):
     return jsonify(
@@ -218,6 +231,7 @@ def unauthorized(error):
                     "message": error.error,
                 }
             ), error.status_code
+
 
 @app.errorhandler(422)
 def unprocessable(error):

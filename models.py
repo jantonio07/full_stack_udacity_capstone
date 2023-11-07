@@ -7,25 +7,29 @@ database_path = 'postgresql://{}/{}'.format('localhost:5432', database_name)
 
 db = SQLAlchemy()
 
+
 def setup_db(app):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    
+
+
 def db_drop_and_create_all():
     db.drop_all()
     db.create_all()
 
+
 def create_all():
     db.create_all()
+
 
 class Album(db.Model):
     __tablename__ = 'albums'
 
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String, nullable = False)
-    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+
     def insert(self):
         db.session.add(self)
         db.session.commit()
@@ -44,7 +48,8 @@ class Album(db.Model):
         }
 
     def __repr__(self):
-      return f'<Venue name={self.name}>'
+        return f'<Venue name={self.name}>'
+
 
 class Image(db.Model):
     __tablename__ = 'images'
@@ -52,10 +57,10 @@ class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # name = db.Column(db.String, nullable = False)
     # description = db.Column(db.String, nullable = False)
-    w = db.Column(db.Integer, nullable = False)
-    h = db.Column(db.Integer, nullable = False)
-    url = db.Column(db.String, nullable = False)
-    imageKitId = db.Column(db.String, nullable = False)
+    w = db.Column(db.Integer, nullable=False)
+    h = db.Column(db.Integer, nullable=False)
+    url = db.Column(db.String, nullable=False)
+    imageKitId = db.Column(db.String, nullable=False)
     albumId = db.Column(db.Integer, db.ForeignKey('albums.id'))
 
     def insert(self):
@@ -79,4 +84,4 @@ class Image(db.Model):
         }
 
     def __repr__(self):
-      return f'<Artist url={self.url}>'
+        return f'<Artist url={self.url}>'
