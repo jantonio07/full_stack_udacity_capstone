@@ -20,8 +20,8 @@ app = Flask(__name__)
 setup_db(app)
 CORS(app)
 
-with app.app_context():
-    create_all()
+# with app.app_context():
+#     create_all()
 
 ik = ImageControl()
 
