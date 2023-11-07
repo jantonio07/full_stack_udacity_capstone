@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, jsonify, request, abort
 from flask_cors import CORS
-from ImageControl import ImageControl
+from image_control import ImageControl
 from auth import AuthError, requires_auth
 from models import setup_db, create_all, Album, Image
 from sqlalchemy import asc
