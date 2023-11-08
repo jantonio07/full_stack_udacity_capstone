@@ -1,7 +1,5 @@
 # Full Stack Udacity Capstone
 
----
-
 ## Introduction
 
 The aim of this project is having a first approach to image handling in web pages.
@@ -9,11 +7,8 @@ Particularly, it consists in deploying a site to share images. Any who accesses 
 
 Even when we can store images in a database as binaries, this is not always the best thing to do. In general terms, it would be better storing the images in the disk or in the cloud and then save in the database the place where the images are. In this project, the cloud alternative is chosen.
 
----
-
 ## Overview
 
----
 ## Tech Stack
 
 * Media management: [ImageKit](https://imagekit.io/).
@@ -23,16 +18,12 @@ Even when we can store images in a database as binaries, this is not always the 
 * Fronted-Javascript: [knockout](https://knockoutjs.com/).
 * Cloud platform as a service: [Heroku](https://dashboard.heroku.com/).
 
----
 ## Local development instructions
 
----
 ## Testing
 
----
 ## Heroku deployment instructions
 
----
 ## API documentation
 
 
@@ -43,6 +34,8 @@ Even when we can store images in a database as binaries, this is not always the 
 | POST   | post:albums   | post:images    |
 | PATCH  | patch:albums  | N/A |
 | DELETE | delete:albums | delete:images  |
+
+---
 
 `GET '/albums'`
 
@@ -77,6 +70,8 @@ Example:
     "success": true
 }
 ```
+
+---
 
 `GET '/albums/<int:albumId>/images'`
 
@@ -116,9 +111,44 @@ Example:
     "success": true
 }
 ```
+---
+`POST '/albums'`
 
+- Request to create a new album.
+- Request Body:
+
+```json
+{
+    "albumName": "New album name"
+}
+```
+- Headers: 'Content-Type: application/json' and Bearer token in `Authorization` header.
+- Returns: An array with the new album.
+
+Example:
+
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer theToken' \
+--data '{
+    "albumName": "API Album"
+}
+'
+`
+
+```json
+{
+    "albums": [
+        {
+            "id": 6,
+            "name": "API Album"
+        }
+    ],
+    "success": true
+}```
 
 ---
+
 ## Future work
 
 ---
