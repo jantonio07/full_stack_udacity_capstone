@@ -11,8 +11,9 @@ Even when we can store images in a database as binaries, this is not always the 
 
 * Media management: [ImageKit](https://imagekit.io/).
 * Authentication and authorization: [Auth0](https://auth0.com/).
-* Backend: Python3 and [Flask](https://flask.palletsprojects.com/en/3.0.x/).
-* Fronted: Javascript and [knockout](https://knockoutjs.com/).
+* Database system: [PostgreSQL](https://www.postgresql.org/).
+* Backend (Python3): [Flask](https://flask.palletsprojects.com/en/3.0.x/), [SQLAlchemy](https://www.sqlalchemy.org/), [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/).
+* Fronted (Javascript): [knockout](https://knockoutjs.com/).
 * Cloud platform as a service: [Heroku](https://dashboard.heroku.com/).
 
 ## Overview
