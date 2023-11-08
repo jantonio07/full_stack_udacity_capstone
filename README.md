@@ -77,6 +77,47 @@ Example:
     "success": true
 }
 ```
+
+`GET '/albums/<int:albumId>/images'`
+
+- Fetch the images available in an album.
+- Request Arguments: The id of the album.
+- Returns: An array with all the albums.
+
+Example:
+
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums/1/images'`
+
+```json
+{
+    "images": [
+        {
+            "albumId": 1,
+            "h": 1600,
+            "id": 1,
+            "url": "https://ik.imagekit.io/ynuyx2nqou/image_uHpQH7Mzr.jpeg",
+            "w": 1200
+        },
+        {
+            "albumId": 1,
+            "h": 1200,
+            "id": 3,
+            "url": "https://ik.imagekit.io/ynuyx2nqou/image_8gFEWJ-qd-.jpeg",
+            "w": 1600
+        },
+        {
+            "albumId": 1,
+            "h": 1200,
+            "id": 4,
+            "url": "https://ik.imagekit.io/ynuyx2nqou/image_wvs3aG7qn.jpeg",
+            "w": 1600
+        }
+    ],
+    "success": true
+}
+```
+
+
 ---
 ## Future work
 
