@@ -26,6 +26,15 @@ Even when we can store images in a database as binaries, this is not always the 
 
 ## API documentation
 
+|                | avatarRole    | AlbumManager   |
+| ---------------| ------------- | -------------  |
+| post:albums    | ✔️            | ❌              |
+| patch:albums   | ✔️            | ❌              |
+| delete:albums  | ✔️            | ❌              |
+| post:images    | ✔️            | ✔️              |
+| delete:images  | ✔️            | ✔️              |
+
+
 
 
 |        | albums        | images         |
