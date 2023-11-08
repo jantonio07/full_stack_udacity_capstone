@@ -7,15 +7,17 @@ Particularly, it consists in deploying a site to share images. Any who accesses 
 
 Even when we can store images in a database as binaries, this is not always the best thing to do. In general terms, it would be better to store the images in the disk or in the cloud and then save in the database the place where the images are. In this case, the cloud alternative is chosen.
 
-## Overview
-
 ## Tech Stack
 
-* Media management.
-* Authentication and authorization.
-* Backend.
-* Fronted.
-* Cloud platform as a service.
+* Media management: [ImageKit](https://imagekit.io/).
+* Authentication and authorization: [Auth0](https://auth0.com/).
+* Backend: Python3 and [Flask](https://flask.palletsprojects.com/en/3.0.x/).
+* Fronted: Javascript and [knockout](https://knockoutjs.com/).
+* Cloud platform as a service: [Heroku](https://dashboard.heroku.com/).
+
+## Overview
+
+
 
 ## Local development instructions
 
@@ -25,6 +27,6 @@ Even when we can store images in a database as binaries, this is not always the 
 
 ## Future work
 
-
+## References
 
 
