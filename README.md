@@ -221,6 +221,26 @@ Example:
 }
 ```
 
+---
+
+`DELETE '/albums/<int:albumId>'`
+
+- Request to delete an album.
+- Request Arguments: The album id.
+- Headers: The Bearer token in `Authorization` header.
+- Returns: An integer with the id of the album deleted.
+
+Example:
+
+`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums/7' \
+--header 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlVXdXJydm95ZUwzU0tlR29GOUdTVSJ9.eyJpc3MiOiJodHRwczovL2Rldi13enJ1dXJpMzVhNDIzcnoyLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDExNDY1MjMxMTg5MjMzMTc0NzYyOCIsImF1ZCI6WyJjYXBzdG9uZVByb2plY3QiLCJodHRwczovL2Rldi13enJ1dXJpMzVhNDIzcnoyLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2OTk0NjY4NzMsImV4cCI6MTY5OTU1MzI3MywiYXpwIjoiUkVNVVVnNVNUcnpPbDF0SXhxZ01sZUxEQnNkc2tJZ1YiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFsYnVtcyIsImRlbGV0ZTppbWFnZXMiLCJwYXRjaDphbGJ1bXMiLCJwb3N0OmFsYnVtcyIsInBvc3Q6aW1hZ2VzIl19.ePnxOacbNlB4zuKUZFPoaycZuLFKEYtQrmjsrcD0pN7T7W9mipJfXy1N1qUG_T-4_thx1VFUrzuchTFdQiOn1tlFPwZyopsGI8VbB3V-QinPZNXI1H8uiGgi2jMkJUHxDkJ4PJ-ZuwlgNS6p7w-y1HhMNJ2VmqMp-hywI1vY6mtm39h-JxCf2GYMvtgPWf-MRsSWOy71xnnHgCllfL3ok9Xg80Q2A7EKwTO8smuIZtLoaJTKWcIkrcxAPsIBqCKrhMcwQf---4O7oJQktPO-ICG0R2xit56bZnsL64bKPsA-wFRNhCbKxGXCj3q9j1T7_ZS8MHCNwU2FmPfBOfXdBg'`
+
+```json
+{
+    "delete": 7,
+    "success": true
+}
+```
 
 ## Future work
 
