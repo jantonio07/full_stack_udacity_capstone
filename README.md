@@ -40,7 +40,6 @@ Even when we can store images in a database as binaries, this is not always the 
 `GET '/albums'`
 
 - Fetch the albums available in the app.
-- Request Arguments: N/A.
 - Returns: An array with all the albums.
 
 Example:
