@@ -67,13 +67,10 @@ class BaseList {
         console.log('Data received ' + sCheckpoint + ': ', oData)
         if (oData.success) {
           fSuccessHandler(oData)
-        } else {
-          alert('Something went wrong ' + sCheckpoint + ': ' + JSON.stringify(oData))
         }
       })
       .catch(oError => {
         console.error('Error received ' + sCheckpoint + ': ', oError)
-        alert('Something went wrong ' + sCheckpoint + ': ' + oError)
       })
     return oPromise
   }
