@@ -122,19 +122,14 @@ Example:
     "albumName": "New album name"
 }
 ```
-- Headers: 'Content-Type: application/json' and Bearer token in `Authorization` header.
+- Headers: `Content-Type: application/json` and Bearer token in `Authorization` header.
 - Returns: An array with the new album.
 
 Example:
 
-`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer theToken' \
---data '{
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums' --header 'Content-Type: application/json' --header 'Authorization: Bearer theToken' --data '{
     "albumName": "API Album"
-}
-'
-`
+}'`
 
 ```json
 {
