@@ -127,7 +127,7 @@ Example:
 
 Example:
 
-`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums' --header 'Content-Type: application/json' --header 'Authorization: Bearer theToken' --data '{
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums' --header 'Content-Type: application/json' --header 'Authorization: Bearer theTokenGoesHere' --data '{
     "albumName": "API Album"
 }'`
 
@@ -142,8 +142,33 @@ Example:
     "success": true
 }
 ```
-
 ---
+`POST '/albums/<int:albumId>/images'`
+
+- Request to add a photo to an album.
+- Request Arguments: The id of the album.
+- Request Body: Image file in `form-data`
+- Headers: Bearer token in `Authorization` header.
+- Returns: An array with the new image.
+
+Example:
+
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums/7/images' --header 'Authorization: Bearer theTokenGoesHere' --form 'file=@"/Users/jogallar/Documents/nanodegree/capstone/avatar_1.jpg"'`
+
+```json
+{
+    "images": [
+        {
+            "albumId": 7,
+            "h": 900,
+            "id": 9,
+            "url": "https://ik.imagekit.io/ynuyx2nqou/image_clJLpxKKz.jpeg",
+            "w": 900
+        }
+    ],
+    "success": true
+}
+```
 
 ## Future work
 
