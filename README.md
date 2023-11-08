@@ -1,5 +1,7 @@
 # Full Stack Udacity Capstone
 
+---
+
 ## Introduction
 
 The aim of this project is having a first approach to image handling in web pages.
@@ -7,9 +9,11 @@ Particularly, it consists in deploying a site to share images. Any who accesses 
 
 Even when we can store images in a database as binaries, this is not always the best thing to do. In general terms, it would be better storing the images in the disk or in the cloud and then save in the database the place where the images are. In this project, the cloud alternative is chosen.
 
+---
+
 ## Overview
 
-
+---
 ## Tech Stack
 
 * Media management: [ImageKit](https://imagekit.io/).
@@ -19,14 +23,64 @@ Even when we can store images in a database as binaries, this is not always the 
 * Fronted-Javascript: [knockout](https://knockoutjs.com/).
 * Cloud platform as a service: [Heroku](https://dashboard.heroku.com/).
 
+---
 ## Local development instructions
 
+---
+## Testing
+
+---
 ## Heroku deployment instructions
 
+---
 ## API documentation
 
+
+
+|        | albums        | images         |
+| -------| ------------- | -------------  |
+| GET    | All users     | All users      |
+| POST   | post:albums   | post:images    |
+| PATCH  | patch:albums  | N/A |
+| DELETE | delete:albums | delete:images  |
+
+`GET '/albums'`
+
+- Fetch the albums available in the app.
+- Request Arguments: N/A.
+- Returns: An array with all the albums.
+
+Example:
+
+`curl --location 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums'`
+
+```json
+{
+    "albums": [
+        {
+            "id": 1,
+            "name": "Guanajuato de mi corazón"
+        },
+        {
+            "id": 2,
+            "name": "Perrito"
+        },
+        {
+            "id": 3,
+            "name": "Running"
+        },
+        {
+            "id": 4,
+            "name": "Wonderland trip"
+        }
+    ],
+    "success": true
+}
+```
+---
 ## Future work
 
+---
 ## References
 
 
