@@ -200,6 +200,27 @@ Example:
     "success": true
 }
 ```
+---
+
+`DELETE '/images/<int:imageId>'`
+
+- Request to delete an image.
+- Request Arguments: The id of the image.
+- Headers: The Bearer token in `Authorization` header.
+- Returns: An integer with the id of the image deleted.
+
+Example:
+
+`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/images/11' \
+--header 'Authorization: Bearer theTokenGoesHere'`
+
+```json
+{
+    "delete": 11,
+    "success": true
+}
+```
+
 
 ## Future work
 
