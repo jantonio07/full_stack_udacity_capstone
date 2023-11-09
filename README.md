@@ -36,8 +36,7 @@ The project needs some environment variables and configuration to run:
 
 * PostgreSQL: `DATABASE_URL`. The user needs to create the database (`create database capstone;` can be ran in `psql`) and then set the URL. To create the tables there are two options: uncomment `create_all` call in `app.py` or do the migration (more detail below).
 
-It can be used `.env_var` to set the environment variables up: `source .env_var`.
-
+It can be used `.env_var` to set the environment variables up, the `Users tokens` variables can be omitted until the app is running and testing is required (more detail in Testing section).
 
 Once the variables are set, the dependencies can be installed (using a virtual environment is recommended) with `pip`:
 
@@ -62,8 +61,17 @@ FLASK_DEBUG=1 flask --app app --debug run
 
 ## Testing
 
+If the app is running the tokens can be obtained using the front-end. When the user is authenticated its token is logged in console. Something like this:
 
+`USER TOKEN: abkuesdyr8734hfjw.wdufh34ofeiuqw4.feq94uhrjwf`
 
+When the tokens for different roles are gotten they can be set using `.env_var` and the run the tests:
+
+```
+python3 app_test.py
+```
+
+In my computer it takes around `15.625s`.
 
 ## Heroku deployment instructions
 
