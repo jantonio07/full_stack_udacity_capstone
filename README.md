@@ -83,7 +83,7 @@ If the app is running the tokens can be obtained using the front-end. When the u
 
 `USER TOKEN: abkuesdyr8734hfjw.wdufh34ofeiuqw4.feq94uhrjwf`
 
-When the tokens for different roles are gotten they can be set using `.env_var` and the run the tests:
+When the tokens for different roles are gotten they can be set using `.env_var` and then run the tests:
 
 ```
 python3 app_test.py
