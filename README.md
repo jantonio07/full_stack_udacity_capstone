@@ -75,6 +75,8 @@ python3 app_test.py
 
 In my computer it takes around `15.625s`.
 
+⚠️ WARNING: The database is cleaned when testing ⚠️
+
 ## Heroku deployment instructions
 
 ## API documentation
