@@ -89,13 +89,11 @@ When the tokens for different roles are gotten they can be set using `.env_var` 
 python3 app_test.py
 ```
 
-In my computer it takes around `15.625s`.
-
 ⚠️ WARNING: The database is cleaned when testing ⚠️
 
 ## Heroku deployment instructions
 
-To perform all this steps a Heroku account is needed. Worth to mention Heroku is not free anymore.
+A Heroku account is needed to perform all these steps. Worth to mention Heroku is not free anymore.
 
 1. Create an app in Heroku:
 
