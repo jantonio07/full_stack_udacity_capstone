@@ -303,6 +303,18 @@ Example:
 ```
 
 ---
+
+When there is an error the response has this format:
+
+```json
+{
+    'success': False,
+    'error': status-code,
+    'message': error-message
+}
+```
+---
+
 ## References
 
 [1] FRIKIdelTO - 047 Subir imágenes a IMAGEKIT con la API (20GB GRATIS!!!) [curso Python]
