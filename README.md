@@ -20,7 +20,37 @@ Even when we can store images in a database as binaries, this is not always the 
 
 ## Local development instructions
 
+The project needs some environment variables and configuration to run:
+
+* ImageKit: `IMAGEKIT_PRIVATE_KEY`, `IMAGEKIT_PUBLIC_KEY` and `IMAGEKIT_URL_ENDPOINT`. These allow us to use the ImageKit API to upload and delete images to an account. A pretty good and straight forward tutorial is [1].
+* Auth0: `AUTH0_DOMAIN`, `AUTH0_CLIENT_ID` and `AUTH0_AUDIENCE`. At high level, we need a single page web application and an API to set roles and permissions. The `AUTH0_DOMAIN` and `AUTH0_CLIENT_ID` variables are obtained from the application and `AUTH0_AUDIENCE` from the API. For more details see [2]. Just as comment: the official Auth0 quick start when an application is created is pretty good to set the authentication in the front-end, and as complement, [3] was really helpfull to set the API.
+* PostgreSQL: `DATABASE_URL`. The user needs to create the database (`create database capstone;` can be ran in `psql`) and then set the URL. To create the tables there are two options: uncomment `create_all` call in `app.py` or do the migration (more detail below).
+
+It can be used `.env_var` to set the environment variables up: `source .env_var`.
+
+
+Once the variables are set, the dependencies can be installed (using a virtual environment is recommended) with `pip`:
+
+```
+pip install
+run something
+```
+
+To initialize the database tables:
+
+```
+
+```
+
+To run the app:
+
+```
+
+```
+
 ## Testing
+
+
 
 ## Heroku deployment instructions
 
@@ -252,5 +282,9 @@ Example:
 
 ---
 ## References
+
+[1]: https://www.youtube.com/watch?v=5DQxzhP9LEw
+[2]: https://github.com/jantonio07/Coffee_Shop_Full_Stack/tree/master/Project/03_coffee_shop_full_stack/starter_code/backend#setup-auth0
+[3]: https://github.com/auth0/auth0-spa-js/issues/317
 
 
