@@ -219,8 +219,7 @@ Example:
 
 Example:
 
-`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/images/11' \
---header 'Authorization: Bearer theTokenGoesHere'`
+`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/images/11' --header 'Authorization: Bearer theTokenGoesHere'`
 
 ```json
 {
@@ -240,8 +239,7 @@ Example:
 
 Example:
 
-`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums/7' \
---header 'Authorization: Bearer theTokenGoesHere'`
+`curl --location --request DELETE 'https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/albums/7' --header 'Authorization: Bearer theTokenGoesHere'`
 
 ```json
 {
