@@ -9,6 +9,8 @@ Even when images can be stored in a database as binaries, this is not always the
 
 ## Demo
 
+ Heroku app: https://jogallar-capstone-app-fd00b6e0aac4.herokuapp.com/
+
  The roles and permissions are presented in the next table.
 
 |                | avatarRole    | AlbumManager   |
