@@ -79,6 +79,35 @@ In my computer it takes around `15.625s`.
 
 ## Heroku deployment instructions
 
+To perform all this steps a Heroku account is needed. Worth to mention Heroku is not free anymore.
+
+1. Create an app in Heroku:
+
+`heroku create jogallar-capstone-app --buildpack heroku/python`
+
+2. Once the app is created, validate git is able to push to the created repo (`git remote -v`). If not, this command may help:
+
+`heroku git:remote -a jogallar-capstone-app`
+
+3. Create a database for the app:
+ 
+`heroku addons:create heroku-postgresql:mini --app jogallar-capstone-app`
+
+5. Set environment variables in heroku app:
+
+INCLUDE_IMAGE
+
+6. Push code to heroku app:
+
+`git push heroku`
+
+6. Create tables in database:
+
+`heroku run flask db upgrade --app jogallar-capstone-app`
+
+7. When the heroku app is deployed, add the URL app in the auth0 application.
+
+
 ## API documentation
 
 |                | avatarRole    | AlbumManager   | 
