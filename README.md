@@ -7,7 +7,18 @@ Particularly, it consists in deploying a site to share images. Any who accesses 
 
 Even when we can store images in a database as binaries, this is not always the best thing to do. In general terms, it would be better storing the images in the disk or in the cloud and then save in the database the place where the images are. In this project, the cloud alternative is chosen.
 
-## Overview
+## Demo
+
+ The roles and permissions are presented in the next table.
+
+|                | avatarRole    | AlbumManager   |
+| ---------------| ------------- | -------------  |
+| post:albums    | ✔️            | ❌              |
+| patch:albums   | ✔️            | ❌              |
+| delete:albums  | ✔️            | ❌              |
+| post:images    | ✔️            | ✔️              |
+| delete:images  | ✔️            | ✔️              |
+
 
 ## Tech Stack
 
@@ -23,16 +34,7 @@ Even when we can store images in a database as binaries, this is not always the 
 The project needs some environment variables and configuration to run:
 
 * ImageKit: `IMAGEKIT_PRIVATE_KEY`, `IMAGEKIT_PUBLIC_KEY` and `IMAGEKIT_URL_ENDPOINT`. These allow us to use the ImageKit API to upload and delete images to an account. A pretty good and straight forward tutorial is [1].
-* Auth0: `AUTH0_DOMAIN`, `AUTH0_CLIENT_ID` and `AUTH0_AUDIENCE`. At high level, we need a single page web application and an API to set roles and permissions. The `AUTH0_DOMAIN` and `AUTH0_CLIENT_ID` variables are obtained from the application and `AUTH0_AUDIENCE` from the API. For more details see [2]. Just as comment: the official Auth0 quick start when an application is created is pretty good to set the authentication in the front-end, and as complement, [3] was really helpfull to set the API. The roles and permissions are presented in the next table.
-
-|                | avatarRole    | AlbumManager   |
-| ---------------| ------------- | -------------  |
-| post:albums    | ✔️            | ❌              |
-| patch:albums   | ✔️            | ❌              |
-| delete:albums  | ✔️            | ❌              |
-| post:images    | ✔️            | ✔️              |
-| delete:images  | ✔️            | ✔️              |
-
+* Auth0: `AUTH0_DOMAIN`, `AUTH0_CLIENT_ID` and `AUTH0_AUDIENCE`. At high level, we need a single page web application and an API to set roles and permissions. The `AUTH0_DOMAIN` and `AUTH0_CLIENT_ID` variables are obtained from the application and `AUTH0_AUDIENCE` from the API. For more details see [2]. Just as comment: the official Auth0 quick start when an application is created is pretty good to set the authentication in the front-end, and as complement, [3] was really helpfull to set the API.
 
 * PostgreSQL: `DATABASE_URL`. The user needs to create the database (`create database capstone;` can be ran in `psql`) and then set the URL. To create the tables there are two options: uncomment `create_all` call in `app.py` or do the migration (more detail below).
 
@@ -77,14 +79,13 @@ In my computer it takes around `15.625s`.
 
 ## API documentation
 
-|                | avatarRole    | AlbumManager   |
+|                | avatarRole    | AlbumManager   | 
 | ---------------| ------------- | -------------  |
 | post:albums    | ✔️            | ❌              |
 | patch:albums   | ✔️            | ❌              |
 | delete:albums  | ✔️            | ❌              |
 | post:images    | ✔️            | ✔️              |
 | delete:images  | ✔️            | ✔️              |
-
 
 
 
@@ -298,8 +299,6 @@ Example:
     "success": true
 }
 ```
-
-## Future work
 
 ---
 ## References
