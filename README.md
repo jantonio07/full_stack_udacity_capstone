@@ -95,7 +95,7 @@ To perform all this steps a Heroku account is needed. Worth to mention Heroku is
 
 5. Set environment variables in heroku app:
 
-INCLUDE_IMAGE
+<img src='heroku_env_var.png' width='200'>
 
 6. Push code to heroku app:
 
