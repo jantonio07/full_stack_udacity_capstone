@@ -305,9 +305,12 @@ Example:
 
 [1] FRIKIdelTO - 047 Subir imágenes a IMAGEKIT con la API (20GB GRATIS!!!) [curso Python]
 
+
 [2] Udacity FSWD nanodegree - Setup Auth0
 
+
 [3] auth0 repo - Custom query parameters with getTokenSilently
+
 
 [1]: https://www.youtube.com/watch?v=5DQxzhP9LEw
 [2]: https://github.com/jantonio07/Coffee_Shop_Full_Stack/tree/master/Project/03_coffee_shop_full_stack/starter_code/backend#setup-auth0
