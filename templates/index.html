@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+</head>
+<body>
+    <h1>Helloooo</h1>
+    <h2>Welcome to the Jose App!</h2>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+    <script src = "https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js" type = "text/javascript"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='definitions.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='auth.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='albumslist.js') }}"></script>
+    
+    <script>
+        const AUTH0_DOMAIN = '{{AUTH0_DOMAIN}}';
+        const AUTH0_CLIENT_ID = '{{AUTH0_CLIENT_ID}}';
+        const AUTH0_AUDIENCE = '{{AUTH0_AUDIENCE}}';
+        const oAuth0Control = new Auth0Control(AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_AUDIENCE);
+        oAuth0Control.isAuthenticated();
+        const oViewModel = oAuth0Control.getViewModel();
+        const oImageList = new AlbumsList(oViewModel);
+    </script>
+</body>
+</html>
