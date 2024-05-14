@@ -24,18 +24,20 @@ Even when images can be stored in a database as binaries, this is not always the
 
 * Unauthenticated users or users with no permissions can only see the content:
 
-https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/31dcba3e-95d2-4658-a87a-ee4a8a7f0a38
+
+https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/a21b5777-dae5-44af-b5f1-6d918a601e1c
+
 
 * In addition to see the content, users with `AlbumManager` role can upload and delete images from albums:
 
-https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/b3acccf9-2118-41a7-9a5e-1f046fdc76fc
+
+https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/07f16ee7-4028-4fd8-9ca6-abcf9830e423
+
 
 * Besides seeing the content and uploading/deleting images, users with `avatarRole` can also create, delete and rename albums:
 
 
-
-https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/22f30e4d-102b-4a91-bd3c-57b6e4793998
-
+https://github.com/jantonio07/full_stack_udacity_capstone/assets/15172655/4a8f718b-fd68-4d33-ae06-e1735cadcca1
 
 
 ## Tech Stack
